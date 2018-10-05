@@ -1,0 +1,149 @@
+<div class="container-fluid "  style="border: solid;">
+    
+    <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title">Card Service Test</h2>
+          <h6 class="card-subtitle mb-2 text-muted"> Confurações de teste de serviço</h6>
+          <p class="text-secondary">Essa é a primeira versão Selecione pdsoifa podsf padsof Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+          <form>
+          
+              <label for="inputAdressGSpreadsheets">Google Spreadsheets Adress</label>
+              
+                    <div class="input-group">
+                        <input 
+                    type="text" 
+                    class="form-control" 
+                    id="inputAdressGSpreadsheets" 
+                    aria-describedby="adressHelp" 
+                    placeholder="Entre com um endereço"
+                    name="inputAdressGS" #inputAdressGS="ngModel"
+                    [(ngModel)]="tabelaService.selectTabela.feedListLink">
+              <div class="input-group-append" id="button-addon4">
+                          <button class="btn  btn-outline-primary" type="button" (click)="getFeedGTabela()">
+                              <img src="./assets/sheet.png" alt="..." class="img" style="background-color: rgba(240, 248, 255, 0)">
+                          </button>
+                          <button class="btn btn-outline-secondary" type="button" (click)="getFeedAPI()">
+                              <img src="./assets/api.png" alt="..." class="img" style="background-color: rgba(240, 248, 255, 0)">
+                          </button>
+                        </div>
+                      </div>
+  
+              <small id="adressHelp" 
+                      class="form-text text-muted">
+                      Informe o endereço da planilha google que deseja usar como fonte de dados.
+                    </small>
+          
+                    <button 
+                          class="btn right btn-primary mt-2 card-link" 
+                          style="margin-left: 2px;" 
+                          (click)="getFeedList()">
+                            
+                          Get Link Content
+  
+                    </button>   
+          </form>
+      
+        </div>
+      </div>
+
+
+  <div class="row" >
+      <div class="col-sm mt-5" *ngFor="let Item of tabelaService.selectTabela.content" >
+          <div class="card  border-warning" style="width: 18rem;" >
+              <div class="card-body ">
+                <h4 class="card-title ">{{Item.nome}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{Item.cargo}}</h6>
+                
+                <p class="card-text text-secondary "><small>
+                    <li>Setor: {{Item.setor}}</li>
+                    <li>Salário: {{Item.salario}}</li>
+                    <li>Versão: {{Item.__v}}</li>
+                    <code>{{Item | json}}</code>
+                  </small> </p>
+                  <button type="button" class="card-link btn btn-outline-primary">Editar</button>
+                
+                  <button type="button" class="card-link btn btn-outline-warning"
+                  (click)="deltCardAPI()">Deletar</button>
+              </div>
+            </div>
+      </div>
+      
+
+
+    <div>
+      <div class="row mt-5" style="border: solid;">
+        <div class="col s12">
+            <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Link with href
+                </a>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Button with data-target
+                </button>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Item #1 tabelaService.selectTabela.content | json
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <p>
+                        Result response
+                      </p>
+                      <pre>
+                          {{tabelaService.selectTabela.content | json}}
+                      </pre>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Item #2 tabelaService.vgoogle | json
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        {{tabelaService.vgoogle | json}}
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Collapsible Group Item #3
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

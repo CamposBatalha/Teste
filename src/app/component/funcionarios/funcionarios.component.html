@@ -1,0 +1,77 @@
+<div  style="background-color: #f5fbff;">
+  <ol class="breadcrumb " style="background-color: #fbfcfc;">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</div>
+<div class="container fluid">
+  <div class="row">
+    <div class="col s12">
+        <div class="jumbotron">
+            <h1 class="display-4"><b>Versão:{{ funcionarioService.vgoogle.version}}</b></h1>
+            <p class="lead">encoding:{{funcionarioService.vgoogle.encoding}}.</p>
+            <hr class="my-4">
+            <p>{{funcionarioService.vgoogle.feed.updated.$t | date : format : timezone}}</p>
+            Autor:{{ funcionarioService.vgoogle.feed.author[0].name.$t }}
+            <p class="lead">
+                
+              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+          </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <table class="table table-hover">
+              <thead class="thead" >
+                <th *ngFor="let tItem of funcionarioService.stringToObject(funcionarioService.vgoogle.feed.entry[0].content.$t)">
+                  {{tItem}}</th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let Item of funcionarioService.vgoogle.feed.entry">
+                  <td *ngFor="let Item2 of funcionarioService.stringToObjectValue(Item.content.$t)">
+                  
+                  
+                  {{Item2}}</td>
+                  
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    <pre>{{ funcionarioService.getGoogleSheet }}
+    </pre>
+    
+     
+   
+    <pre>
+      {{ funcionarioService.vgoogle | json  }}
+
+    </pre>
+    
+    
+    
+    <div class="col s12">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let funcionario of funcionarioService.funcionarios">
+            <td>{{ funcionario.nome }}</td>
+            <td>{{ funcionario.cargo }}</td>
+            <td>{{ funcionario.setor }}</td>
+            <td>{{ funcionario.salario }}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
